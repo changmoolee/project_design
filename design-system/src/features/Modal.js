@@ -78,7 +78,7 @@ const Modal = () => {
             <IconContainer>
               <Icon onClick={handleModal}>&times;</Icon>
             </IconContainer>
-            <ModalTextContainer>Hello CodeStates!</ModalTextContainer>
+            <ModalTextContainer>Hello World</ModalTextContainer>
           </ModalContainer>
         </Wrapper>
       ) : null}
