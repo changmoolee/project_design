@@ -7,6 +7,7 @@ import Tag from "../features/Tag";
 import Toggle from "../features/Toggle";
 import AutoComplete from "../features/AutoComplete";
 import ClickToEdit from "../features/ClickToEdit";
+import ToggleButtons from "../features/ToggleButtons";
 
 const Container = styled.section`
   width: 100%;
@@ -27,6 +28,7 @@ const Article = () => {
         <Route path="/Toggle" element={<Toggle />} />
         <Route path="/AutoComplete" element={<AutoComplete />} />
         <Route path="/ClickToEdit" element={<ClickToEdit />} />
+        <Route path="/ToggleButtons" element={<ToggleButtons />} />
       </Routes>
     </Container>
   );

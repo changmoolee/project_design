@@ -31,8 +31,8 @@ const Input = styled.input`
 `;
 
 const ClickToEdit = () => {
-  const [name, setName] = useState("김코딩");
-  const [age, setAge] = useState(20);
+  const [name, setName] = useState("이름");
+  const [age, setAge] = useState(0);
 
   const editName = (e) => {
     setName(e.target.value);
