@@ -13,6 +13,7 @@ const Section = styled.section`
   width: 100%;
   height: 100%;
   border: red solid 1px;
+  overflow: auto;
 `;
 
 const Feature = styled.div`

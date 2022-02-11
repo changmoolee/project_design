@@ -6,4 +6,6 @@ export const features = [
   "AutoComplete",
   "ClickToEdit",
   "ToggleButtons",
+  "Slider",
+  "Drag",
 ];

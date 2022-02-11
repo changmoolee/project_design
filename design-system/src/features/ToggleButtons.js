@@ -15,12 +15,14 @@ const Container = styled.div`
   border: black 1px solid;
 `;
 const ToggleButtonGroup = styled.section`
-  width: 250px;
+  width: 220px;
   height: 50px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   border: black 1px solid;
+  border-radius: 10px;
+  overflow: hidden;
 `;
 
 const ToggleButtons = () => {
