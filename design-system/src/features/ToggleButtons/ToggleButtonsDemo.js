@@ -7,54 +7,90 @@ import HorizontalMultiple from "./Horizontal/HorizontalMultiple";
 import VerticalExclusive from "./Vertical/VerticalExclusive";
 import VerticalMultiple from "./Vertical/VerticalMultiple";
 
-const HorizontalContainer = styled.section`
+const Container = styled.section`
   width: 500px;
   height: 300px;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   border: black 1px solid;
 `;
 
-const VerticalContainer = styled.section`
-  width: 500px;
-  height: 300px;
+export const Buttons = styled.section`
+  width: ${(props) => props.length.width};
+  height: ${(props) => props.length.height};
   display: flex;
-  justify-content: space-around;
+  flex-direction: ${(props) =>
+    props.mode === "horizontal" ? "row" : "column"};
+  justify-content: flex-start;
   align-items: center;
   border: black 1px solid;
+  border-radius: 10px;
+  overflow: hidden;
 `;
+
+export const ExclusiveButton = styled.span`
+  width: ${(props) => (props.mode === "horizontal" ? "max-content" : "100%")};
+  height: ${(props) => (props.mode === "horizontal" ? "100%" : "content")};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ${(props) => (props.checked === props.index ? "gray" : "none")};
+  border: black 1px solid;
+`;
+
+export const MultipleButton = styled.span`
+  width: ${(props) => (props.mode === "horizontal" ? "max-content" : "100%")};
+  height: ${(props) => (props.mode === "horizontal" ? "100%" : "content")};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ${(props) => (props.checked[props.index] ? "gray" : "none")};
+  border: black 1px solid;
+`;
+
 const ToggleButtonsDemo = () => {
   const buttons = ["align-left", "align-center", "align-right"];
   /* If you want to change the images in the ToggleButtons,
    1. Add image filtes that you want at the "image/public" folder.
    2. Change the name of elements to image file name in the buttons Array */
 
-  const HorizontalLength = { width: "200px", height: "50px" };
-  const VerticalLength = { width: "40px", height: "200px" };
-  /* If you want to change the images in the ToggleButtons, 
-    change the number of width and height */
+  const mode = "horizontal" || "vertical";
+  /* As you change the "mode" props in a tag, 
+    You can choose layout of the ToggleButtons. */
+
+  const horizontalLength = { width: "200px", height: "50px" };
+  const verticalLength = { width: "40px", height: "200px" };
+  /* If you want to change the length of ToggleButtons, 
+    change the figures of width and height. */
+
   return (
     <FeatureContainer>
       <Feature>
-        <HorizontalContainer>
+        <Container>
           <HorizontalExclusive
             buttons={buttons}
-            HorizontalLength={HorizontalLength}
+            horizontalLength={horizontalLength}
+            mode="horizontal"
           />
           <HorizontalMultiple
             buttons={buttons}
-            HorizontalLength={HorizontalLength}
+            horizontalLength={horizontalLength}
+            mode="horizontal"
           />
-        </HorizontalContainer>
-        <VerticalContainer>
+        </Container>
+        <Container>
           <VerticalExclusive
             buttons={buttons}
-            VerticalLength={VerticalLength}
+            verticalLength={verticalLength}
+            mode="vertical"
           />
-          <VerticalMultiple buttons={buttons} VerticalLength={VerticalLength} />
-        </VerticalContainer>
+          <VerticalMultiple
+            buttons={buttons}
+            verticalLength={verticalLength}
+            mode="vertical"
+          />
+        </Container>
       </Feature>
     </FeatureContainer>
   );
