@@ -7,8 +7,8 @@ import TagDemo from "../features/Tag/TagDemo";
 import ToggleDemo from "../features/Toggle/ToggleDemo";
 import AutoComplete from "../features/AutoComplete";
 import ClickToEdit from "../features/ClickToEdit";
-import ToggleButtons from "../features/ToggleButtons";
-import Slider from "../features/Slider";
+import ToggleButtonsDemo from "../features/ToggleButtons/ToggleButtonsDemo";
+import SliderDemo from "../features/Slider/SliderDemo";
 import Drag from "../features/Drag";
 const Container = styled.section`
   width: 100%;
@@ -29,8 +29,8 @@ const Article = () => {
         <Route path="/Toggle" element={<ToggleDemo />} />
         <Route path="/AutoComplete" element={<AutoComplete />} />
         <Route path="/ClickToEdit" element={<ClickToEdit />} />
-        <Route path="/ToggleButtons" element={<ToggleButtons />} />
-        <Route path="/Slider" element={<Slider />} />
+        <Route path="/ToggleButtons" element={<ToggleButtonsDemo />} />
+        <Route path="/Slider" element={<SliderDemo />} />
         <Route path="/Drag" element={<Drag />} />
       </Routes>
     </Container>
