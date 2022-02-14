@@ -1,8 +1,11 @@
 export const features = [
   "Modal",
-  "Tab",
+  "Tabs",
   "Tag",
   "Toggle",
   "AutoComplete",
   "ClickToEdit",
+  "ToggleButtons",
+  "Slider",
+  "Drag",
 ];

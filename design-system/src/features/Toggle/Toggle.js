@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { FeatureContainer } from "./layout/layout";
-import { Feature } from "./layout/layout";
 
 const ToggleContainer = styled.div`
   width: 80px;
@@ -46,18 +44,12 @@ const Toggle = () => {
   const handleToggle = () => {
     setChecked((checked) => !checked);
   };
-
   return (
-    <FeatureContainer>
-      <Feature>
-        <ToggleContainer onClick={handleToggle} checked={checked}>
-          <Shadow checked={checked}>
-            <Ball checked={checked}></Ball>
-          </Shadow>
-        </ToggleContainer>
-        {checked ? "Toggle Switch ON" : "Toggle Switch OFF"}
-      </Feature>
-    </FeatureContainer>
+    <ToggleContainer onClick={handleToggle} checked={checked}>
+      <Shadow checked={checked}>
+        <Ball checked={checked}></Ball>
+      </Shadow>
+    </ToggleContainer>
   );
 };
 

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { FeatureContainer } from "./layout/layout";
-import { Feature } from "./layout/layout";
+import { FeatureContainer } from "../layout/layout";
+import { Feature } from "../layout/layout";
+import Tag from "./Tag";
 
 const Container = styled.div`
   width: 800px;
@@ -22,34 +23,8 @@ const TagInput = styled.input`
   font-size: 16px;
   border: none;
 `;
-const TagDiv = styled.div`
-  height: 70%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-left: 10px;
-  border: 1px black solid;
-  border-radius: 10px;
-  color: white;
-  background-color: #4a19cd;
-`;
-const TagTextElement = styled.div`
-  display: inline;
-  font-size: 16px;
-  margin-left: 5px;
-`;
-const IconContainer = styled.div`
-  display: inline-block;
-  margin-left: 5px;
-  margin-right: 5px;
-`;
-const CloseIcon = styled.img`
-  width: 20px;
-  object-fit: cover;
-`;
 
-//icon에만 색깔 입힐 방법은?
-const Tag = () => {
+const TagDemo = () => {
   const [tags, setTags] = useState([]);
   const [tagText, setTagText] = useState("");
 
@@ -69,14 +44,7 @@ const Tag = () => {
     <FeatureContainer>
       <Feature>
         <Container>
-          {tags.map((tag, index) => (
-            <TagDiv key={index}>
-              <TagTextElement>{tag}</TagTextElement>
-              <IconContainer onClick={() => removeTag(index)}>
-                <CloseIcon src="./delete.png" />
-              </IconContainer>
-            </TagDiv>
-          ))}
+          <Tag tags={tags} removeTag={removeTag} />
           <TagInput
             value={tagText}
             placeholder="Please enter to add Tags"
@@ -94,4 +62,4 @@ const Tag = () => {
   );
 };
 
-export default Tag;
+export default TagDemo;
