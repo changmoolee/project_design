@@ -1,6 +1,6 @@
 export const features = [
   "Modal",
-  "Tab",
+  "Tabs",
   "Tag",
   "Toggle",
   "AutoComplete",

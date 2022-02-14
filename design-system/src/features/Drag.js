@@ -37,6 +37,7 @@ const Drag = () => {
 
   const dragHandler = (e) => {
     //[현재 요소의 좌표(left, top) + 현재 커서의 좌표 - 직전 커서의 좌표]
+    console.log({ posX, posY });
     e.target.style.left = `${e.target.offsetLeft + e.clientX - posX}px`;
     e.target.style.top = `${e.target.offsetTop + e.clientY - posY}px`;
     posX = e.clientX;
@@ -45,8 +46,9 @@ const Drag = () => {
     let styleTop = e.target.style.top;
     let offLeft = e.target.offsetLeft;
     let offTop = e.target.offsetTop;
-    console.log({ styleLeft, styleTop, offLeft, offTop });
-    console.log({ posX, posY });
+    let offLeftX = e.target.offsetX;
+    let offTopY = e.target.offsetY;
+    console.log({ styleLeft, styleTop, posX, posY, offLeft, offTop });
   };
 
   const dragEndHandler = (e) => {
