@@ -23,13 +23,25 @@ const ModalDemo = () => {
   const handleModal = () => {
     setOpen((open) => !open);
   };
+  const size = { width: 600, height: 400 };
+  /* You can alter the figures of width and height. (based on "px" figure) */
+
+  const color = { textColor: "black", backgroundColor: "white" };
+  /* You can change the color of the modal elements. */
+
   const text = "Hello, World!";
   const description =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque condimentum quam at sapien convallis placerat. Etiam et viverra erat.";
   return (
     <>
       {open ? (
-        <Box text={text} description={description} handleModal={handleModal} />
+        <Box
+          text={text}
+          description={description}
+          size={size}
+          color={color}
+          handleModal={handleModal}
+        />
       ) : null}
       <FeatureContainer>
         <Feature>

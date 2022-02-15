@@ -15,12 +15,13 @@ const Container = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 400px;
+  width: ${(props) => props.size.width}px;
+  height: ${(props) => props.size.height}px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  color: ${(props) => props.color.textColor};
+  background-color: ${(props) => props.color.backgroundColor};
   border-radius: 20px;
   z-index: 1;
 `;
@@ -55,11 +56,11 @@ const Description = styled.div`
   font-size: 24px;
 `;
 
-const Box = ({ text, description, handleModal }) => {
+const Box = ({ text, description, size, color, handleModal }) => {
   return (
     <>
       <Wrapper onClick={handleModal} />
-      <Container onClick={(e) => e.stopPropagation()}>
+      <Container size={size} color={color} onClick={(e) => e.stopPropagation()}>
         <IconContainer>
           <Icon onClick={handleModal}>&times;</Icon>
         </IconContainer>
