@@ -17,8 +17,10 @@ const Toggles = styled.div`
 
 const ToggleDemo = () => {
   let controlMode = "none";
+
   /* If you want to make the "disabled Toggle", 
   please change the variable => controlMode = "disabled" */
+
   /* If you want to make the "default checked Toggle", 
    please change the variable => controlMode = "defaultChecked" */
 

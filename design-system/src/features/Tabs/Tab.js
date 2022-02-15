@@ -2,13 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.section`
-  width: 500px;
-  height: 100px;
+  width: ${(props) => props.tapSize.width}px;
+  height: ${(props) => props.tapSize.height}px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 50px;
-  background-color: #dcdcdc;
 `;
 
 const TabButton = styled.div`
@@ -19,16 +17,28 @@ const TabButton = styled.div`
   align-items: center;
   padding: 10px;
   font-size: 16px;
-  color: ${(props) => (props.index === props.tabIndex ? "white" : "gray")};
+  color: ${(props) =>
+    props.index === props.tabIndex
+      ? props.checkedTabColor.textColor
+      : props.tabColor.textColo};
   background-color: ${(props) =>
-    props.index === props.tabIndex ? "#4a19cd" : "#dcdcdc"};
+    props.index === props.tabIndex
+      ? props.checkedTabColor.backgroundColor
+      : props.tabColor.backgroundColor};
   transition: 0.3s;
   cursor: pointer;
 `;
 
-const Tab = ({ tabs, tabIndex, handleTab }) => {
+const Tab = ({
+  tabs,
+  tabIndex,
+  tapSize,
+  tabColor,
+  checkedTabColor,
+  handleTab,
+}) => {
   return (
-    <Container>
+    <Container tapSize={tapSize}>
       {tabs.map((tab, index) => {
         return (
           <TabButton
@@ -36,6 +46,8 @@ const Tab = ({ tabs, tabIndex, handleTab }) => {
             tabIndex={tabIndex}
             index={index}
             onClick={() => handleTab(index)}
+            tabColor={tabColor}
+            checkedTabColor={checkedTabColor}
           >
             {tab}
           </TabButton>
