@@ -56,7 +56,7 @@ const Description = styled.div`
   font-size: 24px;
 `;
 
-const Box = ({ text, description, size, color, handleModal }) => {
+const Box = ({ title, description, size, color, handleModal }) => {
   return (
     <>
       <Wrapper onClick={handleModal} />
@@ -64,7 +64,7 @@ const Box = ({ text, description, size, color, handleModal }) => {
         <IconContainer>
           <Icon onClick={handleModal}>&times;</Icon>
         </IconContainer>
-        <Title>{text}</Title>
+        <Title>{title}</Title>
         <Description>{description}</Description>
       </Container>
     </>

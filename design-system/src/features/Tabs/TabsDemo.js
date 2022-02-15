@@ -6,10 +6,12 @@ import TabDescription from "./TabDescription";
 
 const TabsDemo = () => {
   const tabs = ["Tab1", "Tab2", "Tab3"];
+  /* If you want to change the string of tab button, 
+    please change or add any string at the "tabs" variable. */
   const [tabIndex, setTabIndex] = useState(0);
 
   const tabTitle = ["Tab1", "Tab2", "Tab3"];
-  /* If you want to change the tab, 
+  /* If you want to change the title, 
     please change or add any string at the "tabTitle" variable. */
 
   const tabDescription = [
