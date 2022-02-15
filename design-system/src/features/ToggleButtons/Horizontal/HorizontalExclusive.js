@@ -1,15 +1,9 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { Buttons } from "../ToggleButtonsDemo";
+import { Img } from "../ToggleButtonsDemo";
 import { ExclusiveButton } from "../ToggleButtonsDemo";
 
-const Img = styled.img`
-  width: 80%;
-  height: 80%;
-  object-fit: contain;
-`;
-
-const HorizontalExclusive = ({ buttons, horizontalLength, mode }) => {
+const HorizontalExclusive = ({ buttons, size, mode, color }) => {
   const [checked, setChecked] = useState(0);
 
   const handleChecked = (index) => {
@@ -17,15 +11,16 @@ const HorizontalExclusive = ({ buttons, horizontalLength, mode }) => {
   };
 
   return (
-    <Buttons length={horizontalLength} mode={mode}>
+    <Buttons size={size} mode={mode}>
       {buttons.map((button, index) => (
         <ExclusiveButton
           onClick={() => handleChecked(index)}
           index={index}
           checked={checked}
           mode={mode}
+          color={color}
         >
-          <Img src={`./image/${button}.png`} draggable={false} />
+          <Img src={`./image/${button}`} draggable={false} />
         </ExclusiveButton>
       ))}
     </Buttons>

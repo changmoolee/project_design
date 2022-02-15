@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 const Search = styled.input`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
+  width: ${(props) => props.size.width}px;
+  height: ${(props) => props.size.height}px;
   font-size: 16px;
 `;
 const SuggestionList = styled.datalist``;
 const Option = styled.option``;
 
-const InputSearch = ({ width, height, suggestions }) => {
+const InputSearch = ({ size, suggestions }) => {
   return (
     <>
       <Search
@@ -17,8 +17,7 @@ const InputSearch = ({ width, height, suggestions }) => {
         maxlength="16"
         placeholder="Search sth..."
         list="suggestionList"
-        width={width}
-        height={height}
+        size={size}
       />
       <SuggestionList id="suggestionList">
         {suggestions.map((suggestion) => (

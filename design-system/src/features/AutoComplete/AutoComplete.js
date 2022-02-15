@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.section`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
+  width: ${(props) => props.size.width}px;
+  height: ${(props) => props.size.height}px;
 `;
 
 const SubContainer = styled.div`
@@ -74,7 +74,7 @@ const Suggestion = styled.li`
   }
 `;
 
-const AutoComplete = ({ width, height, suggestions }) => {
+const AutoComplete = ({ size, suggestions }) => {
   const [text, setText] = useState("");
   const [suggestionOpened, setSuggestionOpended] = useState(false);
 
@@ -97,7 +97,7 @@ const AutoComplete = ({ width, height, suggestions }) => {
   };
 
   return (
-    <Container width={width} height={height}>
+    <Container size={size}>
       <SubContainer suggestionOpened={suggestionOpened}>
         <InputContainer>
           <Input

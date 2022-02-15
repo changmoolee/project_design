@@ -23,27 +23,19 @@ const AutoCompleteDemo = () => {
     "remove",
     "rock",
   ];
+  /* These are dummy datas. */
 
-  const width = "400px";
-  const height = "25px";
-  /* You can alter the figures of width and height. */
+  const size = { width: 400, height: 25 };
+  /* You can alter the figures of width and height. (based on "px" figure) */
 
   return (
     <FeatureContainer>
       <Feature>
         <Container>
-          <AutoComplete
-            width={width}
-            height={height}
-            suggestions={suggestions}
-          />
+          <AutoComplete size={size} suggestions={suggestions} />
         </Container>
         <Container>
-          <InputSearch
-            width={width}
-            height={height}
-            suggestions={suggestions}
-          />
+          <InputSearch size={size} suggestions={suggestions} />
         </Container>
       </Feature>
     </FeatureContainer>
