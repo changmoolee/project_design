@@ -17,8 +17,8 @@ const Container = styled.section`
 `;
 
 export const Buttons = styled.section`
-  width: ${(props) => props.length.width};
-  height: ${(props) => props.length.height};
+  width: ${(props) => props.size.width}px;
+  height: ${(props) => props.size.height}px;
   display: flex;
   flex-direction: ${(props) =>
     props.mode === "horizontal" ? "row" : "column"};
@@ -35,7 +35,10 @@ export const ExclusiveButton = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: ${(props) => (props.checked === props.index ? "gray" : "none")};
+  background: ${(props) =>
+    props.checked === props.index
+      ? props.color.checkedColor
+      : props.color.basicColor};
   border: black 1px solid;
 `;
 
@@ -45,24 +48,36 @@ export const MultipleButton = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: ${(props) => (props.checked[props.index] ? "gray" : "none")};
+  background: ${(props) =>
+    props.checked[props.index]
+      ? props.color.checkedColor
+      : props.color.basicColor};
   border: black 1px solid;
 `;
 
+export const Img = styled.img`
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+`;
+
 const ToggleButtonsDemo = () => {
-  const buttons = ["align-left", "align-center", "align-right"];
+  const buttons = ["align-left.png", "align-center.png", "align-right.png"];
   /* If you want to change the images in the ToggleButtons,
-   1. Add image filtes that you want at the "image/public" folder.
+   1. Add image files that you want at the "image/public" folder.
    2. Change the name of elements to image file name in the buttons Array */
 
   const mode = "horizontal" || "vertical";
   /* As you change the "mode" props in a tag, 
     You can choose layout of the ToggleButtons. */
 
-  const horizontalLength = { width: "200px", height: "50px" };
-  const verticalLength = { width: "40px", height: "200px" };
-  /* If you want to change the length of ToggleButtons, 
-    change the figures of width and height. */
+  const color = { basicColor: "#90caf9", checkedColor: "#4c7290" };
+  /* You can change the color of button whether checked or not */
+
+  const horizontalSize = { width: 180, height: 45 };
+  const verticalSize = { width: 36, height: 180 };
+  /* If you want to change the size of ToggleButtons, 
+    change the figures of width and height. (based on "px" figure) */
 
   return (
     <FeatureContainer>
@@ -70,24 +85,28 @@ const ToggleButtonsDemo = () => {
         <Container>
           <HorizontalExclusive
             buttons={buttons}
-            horizontalLength={horizontalLength}
+            size={horizontalSize}
+            color={color}
             mode="horizontal"
           />
           <HorizontalMultiple
             buttons={buttons}
-            horizontalLength={horizontalLength}
+            size={horizontalSize}
+            color={color}
             mode="horizontal"
           />
         </Container>
         <Container>
           <VerticalExclusive
             buttons={buttons}
-            verticalLength={verticalLength}
+            size={verticalSize}
+            color={color}
             mode="vertical"
           />
           <VerticalMultiple
             buttons={buttons}
-            verticalLength={verticalLength}
+            size={verticalSize}
+            color={color}
             mode="vertical"
           />
         </Container>

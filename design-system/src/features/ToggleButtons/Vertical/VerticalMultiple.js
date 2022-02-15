@@ -1,15 +1,9 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { Buttons } from "../ToggleButtonsDemo";
+import { Img } from "../ToggleButtonsDemo";
 import { MultipleButton } from "../ToggleButtonsDemo";
 
-const Img = styled.img`
-  width: 100%;
-  height: 80%;
-  object-fit: contain;
-`;
-
-const VerticalMultiple = ({ buttons, verticalLength, mode }) => {
+const VerticalMultiple = ({ buttons, size, mode, color }) => {
   const [checked, setChecked] = useState(Array(buttons.length).fill(false));
 
   const handleChecked = (index) => {
@@ -19,15 +13,16 @@ const VerticalMultiple = ({ buttons, verticalLength, mode }) => {
   };
 
   return (
-    <Buttons length={verticalLength} mode={mode}>
+    <Buttons size={size} mode={mode}>
       {buttons.map((button, index) => (
         <MultipleButton
           onClick={() => handleChecked(index)}
           index={index}
           checked={checked}
           mode={mode}
+          color={color}
         >
-          <Img src={`./image/${button}.png`} draggable={false} />
+          <Img src={`./image/${button}`} draggable={false} />
         </MultipleButton>
       ))}
     </Buttons>
