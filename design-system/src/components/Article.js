@@ -5,7 +5,7 @@ import ModalDemo from "../features/Modal/ModalDemo";
 import TabsDemo from "../features/Tabs/TabsDemo";
 import TagDemo from "../features/Tag/TagDemo";
 import ToggleDemo from "../features/Toggle/ToggleDemo";
-import AutoComplete from "../features/AutoComplete";
+import AutoCompleteDemo from "../features/AutoComplete/AutoCompleteDemo";
 import ClickToEdit from "../features/ClickToEdit";
 import ToggleButtonsDemo from "../features/ToggleButtons/ToggleButtonsDemo";
 import SliderDemo from "../features/Slider/SliderDemo";
@@ -27,7 +27,7 @@ const Article = () => {
         <Route path="/Tabs" element={<TabsDemo />} />
         <Route path="/Tag" element={<TagDemo />} />
         <Route path="/Toggle" element={<ToggleDemo />} />
-        <Route path="/AutoComplete" element={<AutoComplete />} />
+        <Route path="/AutoComplete" element={<AutoCompleteDemo />} />
         <Route path="/ClickToEdit" element={<ClickToEdit />} />
         <Route path="/ToggleButtons" element={<ToggleButtonsDemo />} />
         <Route path="/Slider" element={<SliderDemo />} />
