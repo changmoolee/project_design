@@ -29,14 +29,15 @@ const ModalDemo = () => {
   const color = { textColor: "black", backgroundColor: "white" };
   /* You can change the color of the modal elements. */
 
-  const text = "Hello, World!";
+  const title = "Hello, World!";
   const description =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque condimentum quam at sapien convallis placerat. Etiam et viverra erat.";
+
   return (
     <>
       {open ? (
         <Box
-          text={text}
+          title={title}
           description={description}
           size={size}
           color={color}

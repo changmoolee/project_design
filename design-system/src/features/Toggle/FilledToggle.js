@@ -2,69 +2,72 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const ToggleContainer = styled.div`
-  width: 80px;
-  height: 40px;
+  width: ${(props) => props.size.width}px;
+  height: ${(props) => props.size.height}px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 10px;
   cursor: pointer;
 `;
 const Shadow = styled.div`
-  width: 80px;
-  height: 40px;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 10px;
   border-radius: 20px;
   background: #dcdcdc;
   background: ${(props) =>
     props.controlMode === "disabled"
-      ? "#3b4754"
+      ? props.color.disabledColor.shadow
       : props.controlMode === "defaultChecked"
-      ? "#253d53"
+      ? props.color.defaultCheckedColor.shadow
       : props.checked
-      ? "linear-gradient(to right, #4d7291 50%, #3b4754 50%) left"
-      : "linear-gradient(to right, #4d7291 50%, #3b4754 50%) right"};
+      ? `linear-gradient(to right, ${props.color.checked.shadow} 50%, #3b4754 50%) left`
+      : `linear-gradient(to right, ${props.color.unChecked.shadow} 50%, #3b4754 50%) right`};
   background-size: 200%;
   transition: 0.3s;
 `;
 
 const Ball = styled.div`
   position: relative;
-  width: 30px;
-  height: 30px;
+  width: ${(props) => props.size.ballSize}px;
+  height: ${(props) => props.size.ballSize}px;
   transform: ${(props) =>
     props.controlMode === "disabled"
-      ? "translate(20% ,0%)"
+      ? "translate(5px ,0)"
       : props.controlMode === "defaultChecked"
-      ? "translate(150% ,0%)"
+      ? `translate(${props.size.width - props.size.ballSize - 5}px ,0)`
       : props.checked
-      ? "translate(150% ,0%)"
-      : "translate(20% ,0%)"};
-  border-radius: 50px;
+      ? `translate(${props.size.width - props.size.ballSize - 5}px ,0)`
+      : "translate(5px  ,0)"};
+  border-radius: 100px;
   background: ${(props) =>
     props.controlMode === "disabled"
-      ? "#757575"
+      ? props.color.disabledColor.ball
       : props.controlMode === "defaultChecked"
-      ? "#405a70"
+      ? props.color.defaultCheckedColor.ball
       : props.checked
-      ? "#90caf9"
-      : "#e0e0e0"};
+      ? props.color.checked.ball
+      : props.color.unChecked.ball};
   transition: 0.3s;
 `;
 
-const FilledToggle = ({ controlMode }) => {
+const FilledToggle = ({ color, controlMode, size }) => {
   const [checked, setChecked] = useState(false);
 
   const handleToggle = () => {
     setChecked((checked) => !checked);
   };
   return (
-    <ToggleContainer onClick={handleToggle} checked={checked}>
-      <Shadow controlMode={controlMode} checked={checked}>
-        <Ball controlMode={controlMode} checked={checked}></Ball>
+    <ToggleContainer onClick={handleToggle} checked={checked} size={size}>
+      <Shadow color={color} controlMode={controlMode} checked={checked}>
+        <Ball
+          color={color}
+          controlMode={controlMode}
+          checked={checked}
+          size={size}
+        />
       </Shadow>
     </ToggleContainer>
   );
