@@ -1,32 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Buttons } from "../ToggleButtonsDemo";
+import { MultipleButton } from "../ToggleButtonsDemo";
 
-const ToggleButtonGroup = styled.section`
-  width: ${(props) => props.length.width};
-  height: ${(props) => props.length.height};
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  border: black 1px solid;
-  border-radius: 10px;
-  overflow: hidden;
-`;
-const ToggleButton = styled.span`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: ${(props) => (props.checked[props.index] ? "gray" : "none")};
-  border: black 1px solid;
-`;
 const Img = styled.img`
   width: 100%;
   height: 80%;
   object-fit: contain;
 `;
 
-const VerticalMultiple = ({ buttons, VerticalLength }) => {
+const VerticalMultiple = ({ buttons, verticalLength, mode }) => {
   const [checked, setChecked] = useState(Array(buttons.length).fill(false));
 
   const handleChecked = (index) => {
@@ -36,17 +19,18 @@ const VerticalMultiple = ({ buttons, VerticalLength }) => {
   };
 
   return (
-    <ToggleButtonGroup length={VerticalLength}>
+    <Buttons length={verticalLength} mode={mode}>
       {buttons.map((button, index) => (
-        <ToggleButton
+        <MultipleButton
           onClick={() => handleChecked(index)}
           index={index}
           checked={checked}
+          mode={mode}
         >
-          <Img src={`./image/${button}.png`} />
-        </ToggleButton>
+          <Img src={`./image/${button}.png`} draggable={false} />
+        </MultipleButton>
       ))}
-    </ToggleButtonGroup>
+    </Buttons>
   );
 };
 

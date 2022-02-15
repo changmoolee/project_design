@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { FeatureContainer } from "./layout/layout";
-import { Feature } from "./layout/layout";
 
-const Container = styled.div`
-  width: 70%;
+const Container = styled.section`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+`;
+
+const SubContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,7 +27,7 @@ const InputContainer = styled.div`
 `;
 
 const Input = styled.input`
-  width: 95%;
+  width: 90%;
   height: 90%;
   display: flex;
   font-size: 16px;
@@ -41,8 +43,8 @@ const Input = styled.input`
 `;
 
 const CloseIcon = styled.div`
-  width: 5%;
-  height: 95%;
+  width: 20px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,11 +55,13 @@ const CloseIcon = styled.div`
 
 const SuggestionsContainer = styled.ul`
   width: 100%;
+  max-height: 200px;
   display: ${(props) => (props.suggestionOpened ? "flex" : "none")};
   flex-direction: column;
   padding: 0px;
   margin: 5px 0px 5px 0px;
   background: white;
+  overflow: overlay;
 `;
 const Suggestion = styled.li`
   width: 98%;
@@ -70,17 +74,9 @@ const Suggestion = styled.li`
   }
 `;
 
-const AutoComplete = () => {
+const AutoComplete = ({ width, height, suggestions }) => {
   const [text, setText] = useState("");
   const [suggestionOpened, setSuggestionOpended] = useState(false);
-  const suggestions = [
-    "중고A급",
-    "refurbished",
-    "antique",
-    "rustic",
-    "remove",
-    "rock",
-  ];
 
   const currentInputText = (e) => {
     setText(e.target.value);
@@ -94,46 +90,50 @@ const AutoComplete = () => {
   const eraseInput = () => {
     setText("");
   };
+  const pressESC = (event) => {
+    if (event.key === "Escape") {
+      closeSuggestion();
+    }
+  };
 
   return (
-    <FeatureContainer>
-      <Feature>
-        <Container suggestionOpened={suggestionOpened}>
-          <InputContainer>
-            <Input
-              placeholder="Please browse here"
-              value={text}
-              onFocus={openSuggestion}
-              onBlur={closeSuggestion}
-              onChange={(e) => currentInputText(e)}
-            />
-            <CloseIcon onClick={eraseInput}>&times;</CloseIcon>
-          </InputContainer>
-          <SuggestionsContainer suggestionOpened={suggestionOpened}>
-            {suggestions.map((suggestion, index) => {
-              if (
-                suggestion.toLowerCase().includes(text.toLowerCase()) &&
-                suggestionOpened &&
-                text !== ""
-              ) {
-                return (
-                  <Suggestion
-                    key={index}
-                    onMouseDown={() => {
-                      setText(suggestion);
-                    }}
-                  >
-                    {suggestion}
-                  </Suggestion>
-                );
-              } else {
-                return null;
-              }
-            })}
-          </SuggestionsContainer>
-        </Container>
-      </Feature>
-    </FeatureContainer>
+    <Container width={width} height={height}>
+      <SubContainer suggestionOpened={suggestionOpened}>
+        <InputContainer>
+          <Input
+            placeholder="Please browse here"
+            value={text}
+            onFocus={openSuggestion}
+            onBlur={closeSuggestion}
+            onChange={(event) => currentInputText(event)}
+            onKeyUp={(event) => pressESC(event)}
+          />
+          <CloseIcon onClick={eraseInput}>&times;</CloseIcon>
+        </InputContainer>
+        <SuggestionsContainer suggestionOpened={suggestionOpened}>
+          {suggestions.map((suggestion, index) => {
+            if (
+              suggestion.toLowerCase().includes(text.toLowerCase()) &&
+              suggestionOpened &&
+              text !== ""
+            ) {
+              return (
+                <Suggestion
+                  key={index}
+                  onMouseDown={() => {
+                    setText(suggestion);
+                  }}
+                >
+                  {suggestion}
+                </Suggestion>
+              );
+            } else {
+              return null;
+            }
+          })}
+        </SuggestionsContainer>
+      </SubContainer>
+    </Container>
   );
 };
 

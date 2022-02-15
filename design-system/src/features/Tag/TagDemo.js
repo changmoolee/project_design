@@ -38,7 +38,7 @@ const TagDemo = () => {
     tagsCopy.splice(index, 1);
     return setTags([...tagsCopy]);
   };
-  const onChangeTagText = (e) => setTagText(e.target.value);
+  const onChangeTagText = (event) => setTagText(event.target.value);
 
   return (
     <FeatureContainer>
@@ -48,13 +48,13 @@ const TagDemo = () => {
           <TagInput
             value={tagText}
             placeholder="Please enter to add Tags"
-            onKeyPress={(e) => {
-              if (e.key === "Enter") {
-                addTag(e.target.value);
+            onKeyPress={(event) => {
+              if (event.key === "Enter") {
+                addTag(event.target.value);
                 setTagText("");
               }
             }}
-            onChange={(e) => onChangeTagText(e)}
+            onChange={(event) => onChangeTagText(event)}
           />
         </Container>
       </Feature>
