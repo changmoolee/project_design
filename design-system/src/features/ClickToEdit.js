@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FeatureContainer } from "./layout/layout";
 import { Feature } from "./layout/layout";
+import { Manual } from "./layout/layout";
 
 const Container = styled.div`
   width: 400px;
@@ -56,6 +57,7 @@ const ClickToEdit = () => {
         </Container>
         이름 {name} 나이 {age}
       </Feature>
+      <Manual></Manual>
     </FeatureContainer>
   );
 };

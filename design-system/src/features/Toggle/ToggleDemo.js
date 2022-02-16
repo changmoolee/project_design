@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FeatureContainer } from "../layout/layout";
 import { Feature } from "../layout/layout";
+import { Manual } from "../layout/layout";
 import FilledToggle from "./FilledToggle";
 import BasicToggle from "./BasicToggle";
 import SquareToggle from "./SquareToggle";
@@ -32,7 +33,7 @@ const ToggleDemo = () => {
 
   const basicSize = { width: 50, height: 20, ballSize: 30 };
   const squareSize = { width: 60, height: 25, ballSize: 30 };
-  const filledSize = { width: 80, height: 40, ballSize: 35 };
+  const filledSize = { width: 100, height: 40, ballSize: 35 };
   /* You can alter Toggle size by size variable. (based on "px" figure) */
 
   const color = {
@@ -101,6 +102,7 @@ const ToggleDemo = () => {
           </Toggles>
         </Container>
       </Feature>
+      <Manual></Manual>
     </FeatureContainer>
   );
 };

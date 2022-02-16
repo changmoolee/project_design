@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FeatureContainer } from "./layout/layout";
 import { Feature } from "./layout/layout";
+import { Manual } from "./layout/layout";
 
 const Container = styled.div`
   width: 500px;
@@ -69,6 +70,7 @@ const Drag = () => {
           />
         </Container>
       </Feature>
+      <Manual></Manual>
     </FeatureContainer>
   );
 };

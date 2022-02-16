@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FeatureContainer } from "../layout/layout";
 import { Feature } from "../layout/layout";
+import { Manual } from "../layout/layout";
 import Box from "./Box";
 
 const Button = styled.div`
@@ -48,6 +49,7 @@ const ModalDemo = () => {
         <Feature>
           <Button onClick={handleModal}>Open Modal</Button>
         </Feature>
+        <Manual></Manual>
       </FeatureContainer>
     </>
   );
