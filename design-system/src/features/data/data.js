@@ -9,4 +9,5 @@ export const features = [
   "Slider",
   "Drag",
   "TransferList",
+  "DropDown",
 ];

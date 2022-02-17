@@ -22,9 +22,7 @@ const TransferListDemo = () => {
     "List Item4",
     "List Item5",
   ]);
-  // typescript - string[]
-
-  // { id: number; value: string; }[]
+  /* You can handle the left database by changing the array.*/
 
   const [rightItems, setRightItems] = useState([
     "List Item6",
@@ -33,6 +31,7 @@ const TransferListDemo = () => {
     "List Item9",
     "List Item10",
   ]);
+  /* You can handle the right database by changing the array.*/
 
   return (
     <FeatureContainer>
