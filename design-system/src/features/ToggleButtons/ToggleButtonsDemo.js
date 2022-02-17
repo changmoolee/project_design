@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FeatureContainer } from "../layout/layout";
 import { Feature } from "../layout/layout";
+import { Manual } from "../layout/layout";
 import HorizontalExclusive from "./Horizontal/HorizontalExclusive";
 import HorizontalMultiple from "./Horizontal/HorizontalMultiple";
 import VerticalExclusive from "./Vertical/VerticalExclusive";
@@ -111,6 +112,7 @@ const ToggleButtonsDemo = () => {
           />
         </Container>
       </Feature>
+      <Manual></Manual>
     </FeatureContainer>
   );
 };

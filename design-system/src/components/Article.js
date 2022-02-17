@@ -10,6 +10,8 @@ import ClickToEdit from "../features/ClickToEdit";
 import ToggleButtonsDemo from "../features/ToggleButtons/ToggleButtonsDemo";
 import SliderDemo from "../features/Slider/SliderDemo";
 import Drag from "../features/Drag";
+import TransferListDemo from "../features/TransferList/TransferListDemo";
+
 const Container = styled.section`
   width: 100%;
   height: 100vh;
@@ -32,6 +34,7 @@ const Article = () => {
         <Route path="/ToggleButtons" element={<ToggleButtonsDemo />} />
         <Route path="/Slider" element={<SliderDemo />} />
         <Route path="/Drag" element={<Drag />} />
+        <Route path="/TransferList" element={<TransferListDemo />} />
       </Routes>
     </Container>
   );

@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 100%;
-  height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,7 +67,7 @@ const Horizontal = ({
   sliderSize,
   thumbSize,
 }) => {
-  const [value, setValue] = useState(Number(figures.min));
+  const [value, setValue] = useState(Number(figures.value));
 
   const handleChangeValue = (e) => {
     setValue(Number(e.target.value));
@@ -85,27 +83,30 @@ const Horizontal = ({
     }
   };
   return (
-    <Container>
-      <ImgButton onClick={decreaseValue} leftImage={leftImage}>
-        <Img src={`./image/${leftImage}`} draggable={false} />
-      </ImgButton>
-      <SliderContainer>
-        <Volume
-          type="range"
-          min={figures.min}
-          max={figures.max}
-          step={figures.step}
-          value={value}
-          color={color}
-          onChange={(e) => handleChangeValue(e)}
-          sliderSize={sliderSize}
-          thumbSize={thumbSize}
-        />
-      </SliderContainer>
-      <ImgButton onClick={increaseValue} rightImage={rightImage}>
-        <Img src={`./image/${rightImage}`} draggable={false} />
-      </ImgButton>
-    </Container>
+    <>
+      <Container>
+        <ImgButton onClick={decreaseValue} leftImage={leftImage}>
+          <Img src={`./image/${leftImage}`} draggable={false} />
+        </ImgButton>
+        <SliderContainer>
+          <Volume
+            type="range"
+            min={figures.min}
+            max={figures.max}
+            step={figures.step}
+            value={value}
+            color={color}
+            onChange={(e) => handleChangeValue(e)}
+            sliderSize={sliderSize}
+            thumbSize={thumbSize}
+          />
+        </SliderContainer>
+        <ImgButton onClick={increaseValue} rightImage={rightImage}>
+          <Img src={`./image/${rightImage}`} draggable={false} />
+        </ImgButton>
+      </Container>
+      {value}
+    </>
   );
 };
 

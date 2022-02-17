@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FeatureContainer } from "../layout/layout";
 import { Feature } from "../layout/layout";
+import { Manual } from "../layout/layout";
 import Tab from "./Tab";
 import TabDescription from "./TabDescription";
 
@@ -59,6 +60,7 @@ const TabsDemo = () => {
           descriptionColor={descriptionColor}
         />
       </Feature>
+      <Manual></Manual>
     </FeatureContainer>
   );
 };

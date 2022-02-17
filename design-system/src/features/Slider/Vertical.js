@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 100%;
-  height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,8 +9,7 @@ const Container = styled.div`
   border: black 1px solid;
 `;
 const SliderContainer = styled.div`
-  width: 50px;
-  height: 250px;
+  height: ${(props) => props.sliderSize.width}px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,7 +71,7 @@ const Vertical = ({
   sliderSize,
   thumbSize,
 }) => {
-  const [value, setValue] = useState(Number(figures.min));
+  const [value, setValue] = useState(Number(figures.value));
 
   const handleChangeValue = (e) => {
     setValue(Number(e.target.value));
@@ -85,32 +82,35 @@ const Vertical = ({
   };
 
   return (
-    <Container>
-      <SliderContainer>
-        <Volume
-          type="range"
-          orient="vertical"
-          min={figures.min}
-          max={figures.max}
-          step={figures.step}
-          value={value}
-          color={color}
-          sliderSize={sliderSize}
-          thumbSize={thumbSize}
-          onChange={(e) => handleChangeValue(e)}
-        />
-      </SliderContainer>
+    <>
+      <Container>
+        <SliderContainer sliderSize={sliderSize}>
+          <Volume
+            type="range"
+            orient="vertical"
+            min={figures.min}
+            max={figures.max}
+            step={figures.step}
+            value={value}
+            color={color}
+            sliderSize={sliderSize}
+            thumbSize={thumbSize}
+            onChange={(e) => handleChangeValue(e)}
+          />
+        </SliderContainer>
 
-      {value === Number(figures.min) ? (
-        <ImgButton onClick={mute} bottomFalseImage={bottomFalseImage}>
-          <Img src={`/image/${bottomFalseImage}`} draggable={false} />
-        </ImgButton>
-      ) : (
-        <ImgButton onClick={mute} bottomTrueImage={bottomTrueImage}>
-          <Img src={`/image/${bottomTrueImage}`} draggable={false} />
-        </ImgButton>
-      )}
-    </Container>
+        {value === Number(figures.min) ? (
+          <ImgButton onClick={mute} bottomFalseImage={bottomFalseImage}>
+            <Img src={`/image/${bottomFalseImage}`} draggable={false} />
+          </ImgButton>
+        ) : (
+          <ImgButton onClick={mute} bottomTrueImage={bottomTrueImage}>
+            <Img src={`/image/${bottomTrueImage}`} draggable={false} />
+          </ImgButton>
+        )}
+      </Container>
+      {value}
+    </>
   );
 };
 

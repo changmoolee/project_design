@@ -8,4 +8,5 @@ export const features = [
   "ToggleButtons",
   "Slider",
   "Drag",
+  "TransferList",
 ];
