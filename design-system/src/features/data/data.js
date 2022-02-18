@@ -10,4 +10,5 @@ export const features = [
   "Drag",
   "TransferList",
   "DropDown",
+  "Drawer",
 ];

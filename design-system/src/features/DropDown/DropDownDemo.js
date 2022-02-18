@@ -41,14 +41,14 @@ const DropDownDemo = () => {
         <Container>
           <SubContainer>
             <DropDowns>
-              <BasicDropDown items={items1} title="item1" />
-              <BasicDropDown items={items2} title="item2" />
+              <BasicDropDown items={items1} title="Items1" />
+              <BasicDropDown items={items2} title="Items2" />
             </DropDowns>
           </SubContainer>
           <SubContainer>
             <DropDowns>
-              <HoverDropDown items={items1} title="item1" />
-              <HoverDropDown items={items2} title="item2" />
+              <HoverDropDown items={items1} title="Items3" />
+              <HoverDropDown items={items2} title="Items4" />
             </DropDowns>
           </SubContainer>
         </Container>

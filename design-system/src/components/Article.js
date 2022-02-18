@@ -12,6 +12,7 @@ import SliderDemo from "../features/Slider/SliderDemo";
 import Drag from "../features/Drag";
 import TransferListDemo from "../features/TransferList/TransferListDemo";
 import DropDownDemo from "../features/DropDown/DropDownDemo";
+import DrawerDemo from "../features/Drawer/DrawerDemo";
 
 const Container = styled.section`
   width: 100%;
@@ -37,6 +38,7 @@ const Article = () => {
         <Route path="/Drag" element={<Drag />} />
         <Route path="/TransferList" element={<TransferListDemo />} />
         <Route path="/DropDown" element={<DropDownDemo />} />
+        <Route path="/Drawer" element={<DrawerDemo />} />
       </Routes>
     </Container>
   );
