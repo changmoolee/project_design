@@ -6,7 +6,7 @@ const Container = styled.section`
   height: 50px;
 `;
 
-const Button = styled.div`
+const Button = styled.button`
   width: 100px;
   height: 50px;
   display: flex;

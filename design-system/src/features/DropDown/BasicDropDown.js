@@ -6,7 +6,7 @@ const Container = styled.section`
   height: 50px;
 `;
 
-const Button = styled.div`
+const Button = styled.button`
   width: 100px;
   height: 50px;
   display: flex;
@@ -42,12 +42,17 @@ const Item = styled.div`
 const BasicDropDown = ({ items, title }) => {
   const [clicked, setClicked] = useState(false);
 
-  const handleButtonClick = () => {
-    setClicked(!clicked);
+  const openMenu = () => {
+    setClicked(true);
+  };
+  const closeMenu = () => {
+    setClicked(false);
   };
   return (
     <Container>
-      <Button onClick={handleButtonClick}>{title}</Button>
+      <Button onBlur={closeMenu} onClick={openMenu}>
+        {title}
+      </Button>
       <Menu clicked={clicked}>
         {items.map((item) => (
           <Item>{item}</Item>
